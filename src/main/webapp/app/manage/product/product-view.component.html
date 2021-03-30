@@ -1,0 +1,122 @@
+<div class="row justify-content-center tn-manage-div">
+    <div class="col-md-12">
+        <form name="editForm" role="form" novalidate (ngSubmit)="saveAction()" [formGroup]="editForm">
+            <h2 id="myUserLabel">
+                <span *ngIf="!product.id;then createText else updateText"></span>
+                <ng-template #createText>Thêm Sản Phẩm</ng-template>
+                <ng-template #updateText>Sản Phẩm</ng-template>
+                <span>{{ editForm['name'] }}</span>
+                <!--<div *ngIf="product.id" class="auto-save">-->
+                    <!--<h2>Auto Save: {{counter_ | async}}</h2>-->
+                <!--</div>-->
+            </h2>
+            <div *ngIf="product">
+                <jhi-alert-error></jhi-alert-error>
+                <div class="row">
+                    <div class="col-md-6">
+                        <jhi-upload-image
+                            (selectFileDTO)="handleSelectFileDTO($event)"
+                            [previewImageUrl]="product.imageUrl"
+                        >
+                        </jhi-upload-image>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" [hidden]="!product.id">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id" formControlName="id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tên</label>
+                            <input type="text" class="form-control" name="name" formControlName="name">
+                            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Loại Sản Phẩm</label>
+                            <select class="form-control" name="productType" formControlName="productType">
+                                <option [value]="item" *ngFor="let item of productTypes">{{item}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Trích Dẫn</label>
+                            <input type="text" class="form-control" name="quote" formControlName="quote">
+                            <small class="form-text text-danger" *ngIf="editForm.get('quote')?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Mô Tả Sản Phẩm</label>
+                            <div id="sample2" [froalaEditor]="options" [(froalaModel)]="description"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Tiêu Đề SEO</label>
+                            <input type="text" class="form-control" name="seoTitle" formControlName="seoTitle">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Đường Dẫn SEO</label>
+                            <div class="urlSeo">
+                                <span>https://mocvinhhoa.com/</span>
+                                <input placeholder="Đường dẫn bài viết" type="text" class="form-control" name="seoPath" formControlName="seoPath">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mô Tả SEO</label>
+                            <textarea class="form-control" name="seoDescription" formControlName="seoDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Từ Khóa SEO</label>
+                            <input type="text" class="form-control" name="seoKeyword" formControlName="seoKeyword">
+                        </div>
+                    </div>
+                </div>
+
+
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <div class="form-group">-->
+<!--                            <label>Mô Tả</label>-->
+<!--                            <angular-editor formControlName="description" [config]="config"></angular-editor>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div *ngIf="product">
+                            <button type="button" class="btn btn-secondary" (click)="previousState()">
+                                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Thoát</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Lưu</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

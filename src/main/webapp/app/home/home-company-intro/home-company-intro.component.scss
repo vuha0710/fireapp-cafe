@@ -1,0 +1,136 @@
+.company {
+  &--title {
+    font-weight: bold;
+    line-height: 1.3;
+  }
+
+  &--box-div {
+    overflow: hidden;
+  }
+
+  &--box {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    width: 100%;
+    height: 250px;
+
+    &--b1 {
+      background: url('/content/images/home/bg1.jpg');
+    }
+    &--b2 {
+      background: url('/content/images/home/bg2.jpg');
+    }
+    &--b3 {
+      background: url('/content/images/home/bg3.jpg');
+    }
+    &--b4 {
+      background: url('/content/images/home/bg1.jpg');
+    }
+
+    &--blue {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+      background: darkblue;
+      z-index: 1;
+    }
+
+    &--text {
+      position: absolute;
+      z-index: 2;
+      color: #ffffff;
+      left: 35px;
+
+      & > span {
+        position: absolute;
+        font-size: 20px;
+        top: 105px;
+        font-weight: 600;
+      }
+
+      & > p {
+        position: absolute;
+        top: 145px;
+        font-size: 14px;
+        width: 85%;
+        font-weight: 400;
+      }
+    }
+
+    &--box-hover {
+      //border: 1px solid aqua;
+      background-image: url('/content/images/home/hover1.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: absolute;
+      text-align: center;
+      transition: 0.5s;
+      top: 0;
+      left: 0;
+      -webkit-transform: translateY(100%);
+      -moz-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      -o-transform: translateY(100%);
+      transform: translateY(100%);
+      z-index: 3;
+      opacity: 0;
+      height: 250px;
+      padding: 10px;
+    }
+  }
+}
+
+.a1Class:hover ~ .a2Class,
+.b1Class:hover ~ .b2Class,
+.c1Class:hover ~ .c2Class,
+.d1Class:hover ~ .d2Class,
+.a2Class:hover,
+.b2Class:hover,
+.c2Class:hover,
+.d2Class:hover {
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.content {
+  margin-top: 80px;
+  font-size: 14px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.desc {
+  color: #012;
+}
+.name {
+  font-weight: bold;
+  font-size: 12px;
+}
+.job {
+  color: darkblue;
+  font-size: 12px;
+}
+.button-seemore {
+  font-size: 12px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .company--box-div {
+    display: none;
+  }
+}

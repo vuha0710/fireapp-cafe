@@ -1,0 +1,40 @@
+.line-box {
+  border-right: 1px solid aquamarine;
+}
+
+.product {
+  &--name {
+    font-size: 18px !important;
+    margin-top: 20px;
+  }
+
+  &--quote {
+    margin-top: 15px;
+    font-weight: 400;
+  }
+
+  &--button {
+    background: #f1d9d9;
+    border: none;
+    padding: 5px 15px;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      background: #000066;
+      color: #ffffff;
+    }
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .text-center {
+    border: 1px solid #0023571f;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+}

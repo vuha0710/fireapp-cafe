@@ -1,0 +1,81 @@
+<div class="tn-div">
+    <div class="row">
+        <div class="banner"></div>
+    </div>
+</div><br/><br/><br/><br/>
+<div class="tn-div tn-product-view">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-md-4 mobi-le">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="category">NHIÊN LIỆU BIOMASS</span>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="line-brick-over"></div>
+
+                    <a [routerLink]="['/', item.seoPath]" *ngFor="let item of biomassProducts" class="product-link">
+                        <div class="row">
+                            <div class="col-4 no-padding div-img">
+                                <img [src]="item.imageUrl" alt="no-image" />
+                            </div>
+                            <div class="col-8 no-padding">
+                                <span class="content">{{ item.name }}</span>
+                            </div>
+                            <div class="line-brick"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 mobi-chan">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="category">LÒ HƠI</span>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="line-brick-over"></div>
+
+                    <a [routerLink]="['/', item.seoPath]" *ngFor="let item of lohoiProducts" class="product-link">
+                        <div class="row">
+                            <div class="col-4 no-padding div-img">
+                                <img [src]="item.imageUrl" alt="no-image" />
+                            </div>
+                            <div class="col-8 no-padding">
+                                <span class="content">{{ item.name }}</span>
+                            </div>
+                            <div class="line-brick"></div>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="col-md-4 mobi-le">
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="category">GIẢI PHÁP NĂNG LƯỢNG</span>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+                    <div class="line-brick-over"></div>
+
+                    <a [routerLink]="['/', item.seoPath]" *ngFor="let item of giaiphapProducts" class="product-link">
+                        <div class="row">
+                            <div class="col-4 no-padding div-img">
+                                <img [src]="item.imageUrl" alt="no-image" />
+                            </div>
+                            <div class="col-8 no-padding">
+                                <span class="content">{{ item.name }}</span>
+                            </div>
+                            <div class="line-brick"></div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/><br/>

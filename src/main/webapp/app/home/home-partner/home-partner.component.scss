@@ -1,0 +1,55 @@
+.background-left {
+  background: #f9f7f7;
+  height: 400px;
+  width: 50%;
+  position: absolute;
+  left: 0;
+}
+
+.background-right {
+  background: url('/content/images/home/DSC9223.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  height: 400px;
+  width: 50%;
+  right: 0;
+}
+
+.background-right-gradient {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  z-index: 1;
+  height: 400px;
+  background-image: linear-gradient(to right, #f9f7f7, #f9f7f770, #00000000, #00000000, #00000000, #00000000);
+}
+
+.box-partner-star {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.box-partner {
+  height: 180px;
+  background: #e5e9ee;
+  width: 100%;
+}
+
+.wraptocenter {
+  display: inherit;
+  text-align: center;
+  vertical-align: middle;
+  margin-top: 20px;
+}
+.wraptocenter * {
+  vertical-align: middle;
+}
+
+.wraptocenter img {
+  width: 180px;
+}

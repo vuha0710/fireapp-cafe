@@ -1,0 +1,101 @@
+<div class="footer">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6 logo-footer">
+                    <img src="/content/images/logo2.png" alt="no-image" style="width: 35%"/><br/>
+<!--                    <span style="margin-left: 155px"><b>Năng lượng không là vô tận</b></span>-->
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <span class="viewText">Số lượt truy cập</span><br/>
+                            <span class="viewNumber">2706</span>
+                        </div>
+                        <div class="col-6">
+                            <span class="viewText">Tổng người truy cập</span><br/>
+                            <span class="viewNumber">020516</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="background: #2c1602 !important; opacity: 0.15 !important;"/>
+            <div class="row footer-info">
+                <div class="col-md-3 footer-content">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5>GIỚI THIỆU</h5><br/>
+                            <p class="near">Mộc Vinh Hoa - thương hiệu nổi tiếng ngành chất đốt hàng đầu tại Việt Nam và từng bước khẳng định vị thế trong khu vực Đông Nam Á.</p>
+                        </div>
+                        <div class="col-2 slash-right"></div>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-content">
+                    <div class="row">
+                        <div class="col-10">
+                            <h5>MỘC VINH HOA</h5><br/>
+                            <div class="near">
+                                <span><b>Địa chỉ:</b></span><br/>
+                                <span>+ Văn phòng: 28/88, KP 13, Phường Hố Nai, TP Biên Hòa, Tỉnh Đồng Nai.</span><br/><br/>
+                                <span><b>Điện thoại:</b></span><br/>
+                                <span>+ Ms.Hoa: 0911.055.744</span><br/><br/>
+                                <span>+ Mr.Tuấn: 0973.116.191</span><br/><br/>
+                                <span><b>Email:</b></span><br/>
+                                <span>+ Công ty: mocvinhhoa.68@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="col-2 slash-right"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 footer-content">
+                    <h5>LIÊN HỆ VỚI CHÚNG TÔI</h5><br/>
+                    <form class="near" name="editForm" role="form" novalidate (ngSubmit)="sendContact()" [formGroup]="editForm">
+                        <div class="row">
+                            <div class="col-6">
+                                <input class="inputClass" type="text" placeholder="Họ và tên" formControlName="fullname" name="fullname" />
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('fullname')?.errors?.required">
+                                    Yêu cầu nhập bắt buộc
+                                </small>
+                            </div>
+                            <div class="col-6">
+                                <input class="inputClass" type="text" placeholder="Số điện thoại" formControlName="phone" />
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('phone')?.errors?.required">
+                                    Yêu cầu nhập bắt buộc
+                                </small>
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('phone')?.errors?.pattern">
+                                    Định dạng số không đúng
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <input class="inputClass" type="text" placeholder="Email" formControlName="email"/>
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('email')?.errors?.required">
+                                    Yêu cầu nhập bắt buộc
+                                </small>
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('email')?.errors?.email">
+                                    Email không đúng định dạng
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea class="inputClass" placeholder="Yêu cầu" style="min-height: 100px" formControlName="content"></textarea>
+                                <small class="form-text text-danger form-send" *ngIf="send && editForm.get('content')?.errors?.required">
+                                    Yêu cầu nhập bắt buộc
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-secondary">Gửi Tin</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.image-upload {
+  & > input {
+    display: none;
+  }
+}
+
+.box-image {
+  width: 100%;
+  height: 250px;
+  background-color: #f2f2f2;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &--text {
+    position: absolute;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  span {
+    font-size: 15px;
+  }
+}

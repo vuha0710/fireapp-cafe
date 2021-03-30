@@ -1,0 +1,51 @@
+<div class="tn-div">
+    <div class="row">
+        <div class="banner"></div>
+    </div>
+</div>
+<div class="tn-div tn-news" style="padding-top: 60px;">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="row news-hot">
+                <div class="col-md-4 news-mobi" *ngFor="let item of newsTop">
+                    <a [routerLink]="['/news', item.shortenCode ]" class="product-link">
+                        <img [src]="item.thumbnailUrl" alt="no-image"/>
+                        <span class="title">{{ item.title }}</span>
+                        <p class="quote">{{item.quote}}</p>
+                        <div class="date-hot">
+                            <span class="day">{{item.day}}</span>
+                            <hr class="line"/>
+                            <span class="month">Tháng {{item.month}}</span><br/>
+                            <span class="year">{{item.year}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <br/><br/>
+            <div class="row news-more">
+                <div class="col-12">
+                    <span class="title-news">Tin tức</span>
+                    <hr style="margin: 0 0 10px 0;"/>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 news-child" style="margin-bottom: 15px" *ngFor="let item of news">
+                        <a [routerLink]="['/news', item.shortenCode ]" class="product-link">
+                            <div class="row" style="margin-left: 15px">
+                                <div class="col-4 no-padding div-img">
+                                    <img [src]="item.thumbnailUrl" alt="no-image" class="news-child-image"/>
+                                </div>
+                                <div class="col-8">
+                                    <span class="news-child-title">{{item.title}}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/><br/>

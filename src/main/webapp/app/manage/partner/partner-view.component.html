@@ -1,0 +1,62 @@
+<div class="row justify-content-center tn-manage-div">
+    <div class="col-md-12">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="myUserLabel">
+                <span *ngIf="!partner.id;then createText else updateText"></span>
+                <ng-template #createText>Tạo Đối Tác</ng-template>
+                <ng-template #updateText>Đối Tác</ng-template>
+                <span>{{ editForm['name'] }}</span>
+            </h2>
+            <div *ngIf="partner">
+                <jhi-alert-error></jhi-alert-error>
+                <div class="row">
+                    <div class="col-md-6">
+                        <jhi-upload-image
+                            (selectFileDTO)="handleSelectFileDTO($event)"
+                            [previewImageUrl]="partner.imageUrl"
+                        >
+                        </jhi-upload-image>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" [hidden]="!partner.id">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id" formControlName="id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tên</label>
+                            <input type="text" class="form-control" name="name" formControlName="name">
+                            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label>Đánh Giá</label>
+                            <select class="form-control" name="ratePoint" formControlName="ratePoint">
+                                <option [value]="point" *ngFor="let point of points">{{point}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Người Đánh Giá</label>
+                            <input type="text" class="form-control" name="rateUser" formControlName="rateUser">
+                        </div>
+                        <div class="form-group">
+                            <label>Ghi Chú</label>
+                            <textarea type="text" class="form-control" name="rateComment" formControlName="rateComment"></textarea>
+                        </div>
+
+                        <div *ngIf="partner">
+                            <button type="button" class="btn btn-secondary" (click)="previousState()">
+                                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Thoát</span>
+                            </button>
+                            <button type="submit" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Lưu</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

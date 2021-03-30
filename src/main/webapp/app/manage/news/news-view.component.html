@@ -1,0 +1,119 @@
+<div class="row justify-content-center tn-manage-div">
+    <div class="col-md-12">
+        <form name="editForm" role="form" novalidate (ngSubmit)="saveAction()" [formGroup]="editForm">
+            <h2 id="myUserLabel">
+                <span *ngIf="!news.id;then createText else updateText"></span>
+                <ng-template #createText>Thêm tin tức</ng-template>
+                <ng-template #updateText>Tin Tức</ng-template>
+                <span>{{ editForm['name'] }}</span>
+            </h2>
+            <div *ngIf="news">
+                <jhi-alert-error></jhi-alert-error>
+                <div class="row">
+                    <div class="col-md-6">
+                        <jhi-upload-image
+                            (selectFileDTO)="handleSelectFileDTO($event)"
+                            [previewImageUrl]="news.thumbnailUrl"
+                        >
+                        </jhi-upload-image>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group" [hidden]="!news.id">
+                            <label>ID</label>
+                            <input type="text" class="form-control" formControlName="id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tiêu Đề</label>
+                            <input type="text" class="form-control" formControlName="title">
+                            <small class="form-text text-danger" *ngIf="editForm.get('title')?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Trích Dẫn</label>
+                            <textarea class="form-control" formControlName="quote"></textarea>
+                            <small class="form-text text-danger" *ngIf="editForm.get('quote')?.errors?.required">
+                                This field is required.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Nội Dung</label>
+                            <div id="sample1" [froalaEditor]="options" [(froalaModel)]="content"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Tiêu Đề SEO</label>
+                            <input type="text" class="form-control" name="seoTitle" formControlName="seoTitle">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Đường Dẫn SEO</label>
+                            <div class="urlSeo">
+                                <span>https://mocvinhhoa.com/</span>
+                                <input placeholder="Đường dẫn bài viết" type="text" class="form-control" name="seoPath" formControlName="seoPath">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Mô Tả SEO</label>
+                            <textarea class="form-control" name="seoDescription" formControlName="seoDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Từ Khóa SEO</label>
+                            <input type="text" class="form-control" name="seoKeyword" formControlName="seoKeyword">
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="form-group">-->
+<!--                            <label>Nội Dung</label>-->
+<!--                            <angular-editor formControlName="content" [config]="config"></angular-editor>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                        <div id="sample1" [froalaEditor]="options" [(froalaModel)]="content"></div>-->
+<!--                        <button class="btn btn-primary float-right" (click)="refresh()">-->
+<!--                            <fa-icon [icon]="'sync'"></fa-icon> <span>Refresh</span>-->
+<!--                        </button>-->
+<!--                        <hr/>-->
+<!--                        <div [froalaView]="content"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div *ngIf="news">
+                            <button type="button" class="btn btn-secondary" (click)="previousState()">
+                                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Thoát</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Lưu</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

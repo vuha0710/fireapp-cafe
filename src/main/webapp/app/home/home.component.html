@@ -1,0 +1,200 @@
+<div style="overflow: hidden">
+    <jhi-home-banner></jhi-home-banner>
+</div>
+
+<div class="home-compo jhi-home-product">
+    <jhi-home-product></jhi-home-product>
+</div>
+
+<div class="home-compo jhi-home-partner">
+    <div class="row">
+        <div class="col-12">
+            <div class="box-partner-star">
+                <div class="background-left">
+                    <div class="hot-partner">
+                        <span>KHÁCH HÀNG ĐÁNH GIÁ</span>
+                        <h3>9.3</h3>
+                    </div>
+                    <br/><br/><br/><br/>
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-8 hot-partner-mobi">
+                            <div class="box-partner-star--title" *ngIf="showPartnerData">{{ showPartnerData.name }}</div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <hr/>
+                                </div>
+                            </div>
+                            <div class="rating" *ngIf="showPartnerData && showPartnerData.ratePoint">
+                                <span [ngSwitch]="showPartnerData.ratePoint">
+                                    <span *ngSwitchCase="1">
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                    </span>
+                                    <span *ngSwitchCase="2">
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                    </span>
+                                    <span *ngSwitchCase="3">
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-none">☆</span>
+                                        <span class="star-none">☆</span>
+                                    </span>
+                                    <span *ngSwitchCase="4">
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-none">☆</span>
+                                    </span>
+                                    <span *ngSwitchDefault>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                        <span class="star-yellow">☆</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="box-partner-star--rateUser" *ngIf="showPartnerData">{{ showPartnerData.rateUser }}</div>
+                            <div class="box-partner-star--rateComment" *ngIf="showPartnerData">{{ showPartnerData.rateComment }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="all"></div>
+                <div class="background-right"></div>
+                <div class="background-right-gradient"></div>
+            </div>
+            <div class="box-partner">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row" *ngIf="homeData && homeData.partnerDataList">
+                            <div class="col-1"></div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-3 wraptocenter" *ngFor="let item of homeData.partnerDataList">
+                                        <a (click)="partnerChoose(item)" style="text-decoration: none">
+                                            <img class="img-partner" [src]="item.imageUrl" alt="no-image"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="home-compo">
+    <jhi-home-company-intro></jhi-home-company-intro>
+</div>
+
+<div class="home-compo">
+    <div class="row">
+        <div class="col-12">
+            <div class="box">
+                <div class="row" *ngIf="homeData && homeData.newsDataList">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-2 row-news">
+                                <h4 class="box--title">Tin tức</h4>
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 top-news" *ngIf="homeData.newsDataList[0]">
+                                <a [routerLink]="['/news', homeData.newsDataList[0].shortenCode ]" class="product-link">
+                                    <div class="box--news--image">
+                                        <img [src]="homeData.newsDataList[0].thumbnailUrl" alt="no-image"/>
+                                    </div>
+                                    <div class="box--news--title">
+                                        <span>{{ homeData.newsDataList[0].title }}</span>
+                                    </div>
+                                    <div class="box--news--quote">
+                                        <p>{{ homeData.newsDataList[0].quote }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 top-news" *ngIf="homeData.newsDataList[1]">
+                                <a [routerLink]="['/news', homeData.newsDataList[1].shortenCode ]" class="product-link">
+                                    <div class="box--news--image">
+                                        <img [src]="homeData.newsDataList[1].thumbnailUrl" alt="no-image"/>
+                                    </div>
+                                    <div class="box--news--title">
+                                        <span>{{ homeData.newsDataList[1].title }}</span>
+                                    </div>
+                                    <div class="box--news--quote">
+                                        <p>{{ homeData.newsDataList[1].quote }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <h4 class="box--ref--title">
+                                        <span>Tin gần đây</span>
+                                        <hr/>
+                                    </h4>
+                                </div>
+                                <div class="box--ref--element">
+                                    <div class="row" *ngIf="homeData.newsDataList[2]">
+                                        <div class="col-3" style="padding: 0">
+                                            <div class="box--ref--element--image">
+                                                <img [src]="homeData.newsDataList[2].thumbnailUrl" alt="no-image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a [routerLink]="['/news', homeData.newsDataList[2].shortenCode ]" class="product-link">
+                                                <div class="box--ref--element--title">{{ homeData.newsDataList[2].title }}</div>
+                                            </a>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row" *ngIf="homeData.newsDataList[3]">
+                                        <div class="col-3" style="padding: 0">
+                                            <div class="box--ref--element--image">
+                                                <img [src]="homeData.newsDataList[3].thumbnailUrl" alt="no-image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a [routerLink]="['/news', homeData.newsDataList[3].shortenCode ]" class="product-link">
+                                                <div class="box--ref--element--title">{{ homeData.newsDataList[3].title }}</div>
+                                            </a>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row" *ngIf="homeData.newsDataList[4]">
+                                        <div class="col-3" style="padding: 0">
+                                            <div class="box--ref--element--image">
+                                                <img [src]="homeData.newsDataList[4].thumbnailUrl" alt="no-image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-9">
+                                            <a [routerLink]="['/news', homeData.newsDataList[4].shortenCode ]" class="product-link">
+                                                <div class="box--ref--element--title">{{ homeData.newsDataList[4].title }}</div>
+                                            </a>
+                                        </div>
+                                    </div><br/>
+                                    <div class="row">
+                                        <div class="col-9" style="padding: 0">
+                                            <a routerLink="news" class="product--button">Xem Thêm</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

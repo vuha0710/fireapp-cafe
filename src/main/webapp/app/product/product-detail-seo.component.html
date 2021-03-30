@@ -1,0 +1,45 @@
+<div class="tn-div">
+    <div class="row">
+        <div class="banner-product" *ngIf="seo.productId"></div>
+        <div class="banner-news" *ngIf="seo.newsId"></div>
+    </div>
+</div><br/><br/><br/><br/>
+<div class="tn-div tn-product-view" *ngIf="seo.productId">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="product--name">{{seo.productName}}</h2>
+                    <p class="product--quote">{{seo.productQuote}}</p>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-12">
+                    <div [froalaView]="seo.productDescription"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tn-div tn-news-view" *ngIf="seo.newsId">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="news--title">{{seo.newsTitle}}</h2>
+                    <div class="news--createdDate"><span>{{seo.newsCreatedDate | date: DATE_FORMAT : '+0700'}} (GMT+7)</span></div>
+                    <p class="news--quote">{{seo.newsQuote}}</p>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-12">
+                    <div [froalaView]="seo.newsContent"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<br/><br/><br/>

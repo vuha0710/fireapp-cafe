@@ -1,0 +1,34 @@
+<div class="row justify-content-center tn-manage-div">
+    <div class="col-md-12">
+        <div *ngIf="contact">
+            <h2><span>Liên Hệ</span> {{contact.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Họ Tên</span></dt>
+                <dd>
+                    <span>{{contact.fullname}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{contact.email}}</span>
+                </dd>
+                <dt><span>Số Điện Thoại</span></dt>
+                <dd>
+                    <span>{{contact.phone}}</span>
+                </dd>
+                <dt><span>Nội Dung</span></dt>
+                <dd>
+                    <span>{{contact.content}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Trở Lại</span>
+            </button>
+
+        </div>
+    </div>
+</div>

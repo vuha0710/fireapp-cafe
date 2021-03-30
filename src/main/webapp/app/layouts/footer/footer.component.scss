@@ -1,0 +1,79 @@
+.form-send {
+  margin-top: -5px;
+}
+
+.footer {
+  background: #dceaff;
+  color: #2c1602;
+  font-weight: 400;
+  padding: 15px 15px 100px 15px;
+}
+
+.logo {
+  line-height: 20px;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 18px;
+  color: #fff;
+  background: url('../../../content/images/logo2.png') no-repeat center center;
+  height: 135px;
+  width: 135px;
+}
+
+.viewText {
+  font-weight: bold;
+  font-family: 'SF Pro Display Se', sans-serif;
+  line-height: 1.3;
+}
+
+.viewNumber {
+  font-size: 30px;
+  color: #00baef;
+  font-weight: 400;
+}
+
+.slash-right {
+  border-right: 1px solid #17a2b8 !important;
+  opacity: 0.15;
+}
+
+.footer-content h5 {
+  font-weight: bold;
+  font-size: 16px;
+}
+.footer-content p {
+  font-size: 15px;
+}
+
+.inputClass {
+  width: 100%;
+  margin: 3px 0;
+  background: #ffffff;
+  border: none;
+  height: 30px;
+  padding: 0 5px 0 10px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .logo-footer {
+    margin-bottom: 20px;
+    display: none;
+  }
+
+  .footer-content {
+    margin-top: 30px;
+  }
+
+  .near {
+    margin-top: -28px;
+  }
+
+  .footer-info {
+    background: #132f588c;
+    padding-bottom: 20px;
+  }
+}

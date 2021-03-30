@@ -1,0 +1,48 @@
+.banner {
+  display: block;
+  width: 100%;
+  height: 330px;
+  background: url('/content/images/product/bg2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+//.banner {
+//  display: block;
+//  width: 100%;
+//  height: 330px;
+//  position: relative;
+//  overflow: hidden;
+//
+//  img {
+//    width: 100%;
+//  }
+//}
+
+.product {
+  &--name {
+    font-weight: bold;
+  }
+
+  &--quote {
+    font-weight: bold;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .fr-view,
+  .product--name,
+  .product--quote {
+    padding: 0 15px;
+  }
+
+  .tn-product-view {
+    margin-top: -65px !important;
+  }
+}

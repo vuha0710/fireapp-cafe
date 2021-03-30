@@ -1,0 +1,28 @@
+<div class="tn-div">
+    <div class="row">
+        <div class="banner">
+<!--            <img [src]="news.thumbnailUrl" alt="no-image" />-->
+        </div>
+    </div>
+</div><br/><br/><br/><br/>
+<div class="tn-div tn-news-view">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="news--title">{{news.title}}</h2>
+                    <div class="news--createdDate"><span>{{news.createdDate | date: DATE_FORMAT : '+0700'}} (GMT+7)</span></div>
+                    <p class="news--quote">{{news.quote}}</p>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-12">
+                    <div [froalaView]="news.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<br/><br/><br/>

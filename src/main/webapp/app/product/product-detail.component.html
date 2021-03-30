@@ -1,0 +1,26 @@
+<div class="tn-div">
+    <div class="row">
+        <div class="banner">
+<!--            <img [src]="product.imageUrl" alt="no-image" />-->
+        </div>
+    </div>
+</div><br/><br/><br/><br/>
+<div class="tn-div tn-product-view">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="product--name">{{product.name}}</h2>
+                    <p class="product--quote">{{product.quote}}</p>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-12">
+                    <div [froalaView]="product.description"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br/><br/>

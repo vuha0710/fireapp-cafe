@@ -1,0 +1,28 @@
+.urlSeo {
+  display: flex;
+
+  span {
+    border: 1px solid #34d9d9;
+    padding: 6px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    background: #ceced9;
+  }
+}
+
+.auto-save {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+
+  h2 {
+    font-size: 20px;
+    color: #673b08;
+    font-weight: 600;
+    background: antiquewhite;
+    padding: 3px 8px;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+}
