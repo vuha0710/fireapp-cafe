@@ -17,7 +17,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'fireapp_cafe' }),
     FireappCafeSharedModule,
     FireappCafeCoreModule,
     FireappCafeHomeModule,

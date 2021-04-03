@@ -10,7 +10,6 @@ import { HomePartnerComponent } from 'app/home/home-partner/home-partner.compone
 import { HomeProductComponent } from 'app/home/home-product/home-product.component';
 import { HomeNewsComponent } from 'app/home/home-news/home-news.component';
 import { FERootModule, FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
-import 'froala-editor/js/plugins.pkgd.min.js';
 
 @NgModule({
   imports: [FireappCafeSharedModule, RouterModule.forChild([HOME_ROUTE]), FERootModule, FroalaViewModule, FroalaEditorModule],

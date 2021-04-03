@@ -26,5 +26,7 @@
     "skipMetadataEmit": true,
     "fullTemplateTypeCheck": true,
     "preserveWhitespaces": true
-  }
+  },
+  "include": ["src/main/webapp/app", "src/test/javascript/"],
+  "exclude": ["node_modules"]
 }

@@ -8,15 +8,21 @@ if (module['hot']) {
   module['hot'].accept();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(FireappCafeAppModule)
-  .then(ref => {
-    // Ensure Angular destroys itself on hot reloads.
-    if (window['ngRef']) {
-      window['ngRef'].destroy();
-    }
-    window['ngRef'] = ref;
+document.addEventListener('DOMContentLoaded', () => {
+  platformBrowserDynamic()
+    .bootstrapModule(FireappCafeAppModule, { preserveWhitespaces: true })
+    // eslint-disable-next-line no-console
+    .then(() => console.log('Application started'))
+    .catch(err => console.error(err));
+});
 
-    // Otherwise, log the boot error
-  })
-  .catch(err => console.error(err));
+// platformBrowserDynamic()
+//   .bootstrapModule(FireappCafeAppModule)
+//   .then(ref => {
+//     if (window['ngRef']) {
+//       window['ngRef'].destroy();
+//     }
+//     window['ngRef'] = ref;
+
+//   })
+//   .catch(err => console.error(err));

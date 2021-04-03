@@ -89,7 +89,16 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
             test: /\.scss$/,
             use: ['to-string-loader', 'css-loader', 'postcss-loader', {
                 loader: 'sass-loader',
-                options: { implementation: sass }
+                options: {
+                    sassOptions: {
+                        implementation: sass,
+                        importLoaders: true,
+indentedSyntax: true,
+                        includePaths: [
+                            // ... <your path>
+                        ]
+                    }
+                }
             }],
             exclude: /(vendor\.scss|global\.scss)/
         },
@@ -97,7 +106,16 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
             test: /(vendor\.scss|global\.scss)/,
             use: ['style-loader', 'css-loader', 'postcss-loader', {
                 loader: 'sass-loader',
-                options: { implementation: sass }
+                options: {
+                    sassOptions: {
+                        implementation: sass,
+                        importLoaders: true,
+                        indentedSyntax: true,
+                        includePaths: [
+                            // ... <your path>
+                        ]
+                    }
+                }
             }]
         }]
     },

@@ -38,7 +38,16 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             test: /\.scss$/,
             use: ['to-string-loader', 'css-loader', 'postcss-loader', {
                 loader: 'sass-loader',
-                options: { implementation: sass }
+                options: {
+                    sassOptions: {
+                        implementation: sass,
+                        importLoaders: true,
+                        indentedSyntax: true,
+                        includePaths: [
+                            // ... <your path>
+                        ]
+                    }
+                }
             }],
             exclude: /(vendor\.scss|global\.scss)/
         },
@@ -55,7 +64,16 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
                 'postcss-loader',
                 {
                     loader: 'sass-loader',
-                    options: { implementation: sass }
+                    options: {
+                        sassOptions: {
+                            implementation: sass,
+                            importLoaders: true,
+                            indentedSyntax: true,
+                            includePaths: [
+                                // ... <your path>
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -76,7 +94,8 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
                 'css-loader',
                 'postcss-loader'
             ]
-        }]
+        }
+        ]
     },
     optimization: {
         runtimeChunk: false,
@@ -140,16 +159,16 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         new AngularCompilerPlugin({
             mainPath: utils.root('src/main/webapp/app/app.main.ts'),
             tsConfigPath: utils.root('tsconfig-aot.json'),
-            sourceMap: true
+            // sourceMap: true
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false
         }),
         new WorkboxPlugin.GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
-          exclude: [/swagger-ui/]
+            clientsClaim: true,
+            skipWaiting: true,
+            exclude: [/swagger-ui/]
         })
     ],
     mode: 'production'
